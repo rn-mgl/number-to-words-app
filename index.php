@@ -4,8 +4,8 @@
 
 ?>
 
-<form action="" name="check" id="check">
-    <input type="number" step="0.01" id="checkValue" name="checkValue">
+<form action="" name="convert" id="convert">
+    <input type="number" step="0.01" id="chequeValue" name="chequeValue">
     <button type="submit">Convert</button>
 </form>
     
