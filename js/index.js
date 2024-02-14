@@ -124,8 +124,6 @@ const batchConverter = (batch) => {
     return result;
   }
 
-  console.log(intBatch);
-
   if (intBatch > 0 && intBatch < 10) {
     result += singleDigit[intBatch] + " ";
   } else if (intBatch > 9 && intBatch < 20) {

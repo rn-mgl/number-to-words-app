@@ -134,12 +134,14 @@ button {
 }
 
 #cheque-value {
-  font-size: 1rem;
+  font-size: 1.2rem;
   width: 100%;
-  padding: 1rem;
-  border-radius: 0.4rem;
+  padding: 0.5rem;
   border: none;
   outline: none;
+  background: none;
+  border-bottom: 0.2rem solid var(--white);
+  color: var(--white);
 }
 
 #submitForm {
@@ -158,6 +160,7 @@ button {
   padding: 1.2rem;
   border-radius: 0.8rem;
   background: var(--white);
+  gap: 2rem;
 }
 
 #result {
@@ -165,6 +168,20 @@ button {
   text-transform: capitalize;
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+#clear-button {
+  background: none;
+  color: crimson;
+  font-size: 0.8rem;
+  margin-left: auto;
+  font-weight: 400;
+  padding: 0rem;
+}
+
+#clear-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .blob {
