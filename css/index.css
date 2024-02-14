@@ -40,6 +40,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
 html {
   display: flex;
   flex-direction: column;
@@ -74,7 +81,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to bottom right, var(--black), var(--gray));
+  background: var(--primary);
 }
 
 button {
@@ -97,10 +104,31 @@ button {
   gap: 2rem;
 }
 
+#converter-card {
+  background: var(--secondary);
+  padding: 1rem;
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-direction: column;
+  width: 100%;
+  max-width: 768px;
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+}
+
+@media screen and (min-width: 768px) {
+  #converter-card {
+    padding: 2rem;
+  }
+}
+
 #title {
   font-size: 1.2rem;
-  padding: 0rem;
-  font-weight: 600;
+  padding: 1rem;
+  font-weight: 800;
+  color: #0d0d0d;
 }
 
 #convert-form {
@@ -109,16 +137,10 @@ button {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1.4rem;
-  background: linear-gradient(
-    to bottom right,
-    rgb(250, 248, 255, 0.5),
-    rgb(250, 248, 255, 0.2),
-    rgb(250, 248, 255, 0.5)
-  );
   backdrop-filter: blur(4px);
-  border-radius: 1.2rem;
+  border-radius: 0.8rem;
   border: thin solid var(--white);
   max-width: 768px;
   box-shadow: 0rem 0.5rem 0.5rem rgb(250, 248, 255, 0.2);
@@ -140,18 +162,25 @@ button {
   border: none;
   outline: none;
   background: none;
-  border-bottom: 0.2rem solid var(--white);
-  color: var(--white);
+  border-bottom: 0.2rem solid var(--primary);
+  color: var(--primary);
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+#cheque-value:focus {
+  border-bottom: 0.4rem solid var(--primary);
 }
 
 #submitForm {
   width: 100%;
-  background: var(--green);
-  color: var(--black);
+  background: var(--primary);
+  color: var(--secondary);
+  border-radius: 20rem;
+  font-size: 1.2rem;
 }
 
 #result-container {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -161,13 +190,14 @@ button {
   border-radius: 0.8rem;
   background: var(--white);
   gap: 2rem;
+  overflow-y: auto;
 }
 
 #result {
   color: var(--black);
   text-transform: capitalize;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 #clear-button {

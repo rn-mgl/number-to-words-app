@@ -1,66 +1,77 @@
-const formTag = document.getElementById("convert-form");
 const resultContainer = document.getElementById("result-container");
 const resultTag = document.getElementById("result");
 const clearButton = document.getElementById("clear-button");
 const chequeValue = document.getElementById("cheque-value");
 
-formTag.addEventListener("submit", function (e) {
-  e.preventDefault();
+jQuery(function () {
+  $("#convert-form").on("submit", function (e) {
+    e.preventDefault();
 
-  const formData = new FormData(e.target);
-  const formProps = Object.fromEntries(formData);
+    const formData = $(this).serializeArray();
+    const mappedFormData = {};
 
-  let result = "";
-  const val = parseFloat(formProps["cheque-value"]).toFixed(2);
-  const numToString = val.toString();
-  const splitPlaces = numToString.split(".");
-  const whole = splitPlaces[0];
-  const decimal = splitPlaces[1];
+    jQuery.map(formData, function (data) {
+      mappedFormData[data.name] = data.value;
+    });
 
-  if (val < 0) {
-    resultTag.innerText = "zero peso and zero cent";
-    return;
-  }
+    let result = "";
+    const val = parseFloat(mappedFormData["cheque-value"]).toFixed(2);
+    const numToString = val.toString();
+    const splitPlaces = numToString.split(".");
+    const whole = splitPlaces[0];
+    const decimal = splitPlaces[1];
 
-  const wholeNumSplit = splitNumber(whole);
-  const wholeNumPlacements = getPlacements(wholeNumSplit);
-
-  let convertedDecimalValue = "zero ";
-
-  let convertedWholeNum = numToWord(wholeNumSplit, wholeNumPlacements);
-
-  if (parseInt(whole) > 1) {
-    convertedWholeNum += "pesos";
-  } else {
-    convertedWholeNum += "peso";
-  }
-
-  result += convertedWholeNum;
-
-  if (decimal && parseInt(decimal)) {
-    const decimalNumSplit = splitNumber(decimal);
-    const decimalNumPlacements = getPlacements(decimalNumSplit);
-    convertedDecimalValue = numToWord(decimalNumSplit, decimalNumPlacements);
-    if (parseInt(decimal) > 1) {
-      convertedDecimalValue += "cents";
-    } else {
-      convertedDecimalValue += "cent";
+    if (val < 0) {
+      $("#result").html(`<p id="result">${result}</p>
+      <button id="clear-button">Clear</button>`);
+      return;
     }
 
-    result += " and " + convertedDecimalValue;
-  }
+    const wholeNumSplit = splitNumber(whole);
+    const wholeNumPlacements = getPlacements(wholeNumSplit);
 
-  resultTag.innerText = result;
+    let convertedDecimalValue = "zero ";
 
-  resultContainer.style = "display : flex";
-  return;
-});
+    let convertedWholeNum = numToWord(wholeNumSplit, wholeNumPlacements);
 
-clearButton.addEventListener("click", function () {
-  resultTag.innerText = "";
-  chequeValue.value = "";
-  resultContainer.style = "display : hidden";
-  return;
+    if (parseInt(whole) > 1) {
+      convertedWholeNum += " pesos";
+    } else {
+      convertedWholeNum += " peso";
+    }
+
+    result += convertedWholeNum;
+
+    if (decimal && parseInt(decimal)) {
+      const decimalNumSplit = splitNumber(decimal);
+      const decimalNumPlacements = getPlacements(decimalNumSplit);
+      convertedDecimalValue = numToWord(decimalNumSplit, decimalNumPlacements);
+      if (parseInt(decimal) > 1) {
+        convertedDecimalValue += "cents";
+      } else {
+        convertedDecimalValue += "cent";
+      }
+      result += " and " + convertedDecimalValue;
+    }
+
+    $("#result-container")
+      .html(
+        `<p id="result">${result}</p>
+          <button id="clear-button">Clear</button>`
+      )
+      .slideDown(100)
+      .css({
+        display: "flex",
+        "align-items": "center",
+        "justify-content": "center",
+      });
+    return;
+  });
+
+  $("#result-container").on("click", "#clear-button", function () {
+    $("#cheque-value").val("");
+    $("#result-container").slideUp(100);
+  });
 });
 
 const splitNumber = (numString) => {
@@ -125,17 +136,17 @@ const batchConverter = (batch) => {
   }
 
   if (intBatch > 0 && intBatch < 10) {
-    result += singleDigit[intBatch] + " ";
+    result += " " + singleDigit[intBatch];
   } else if (intBatch > 9 && intBatch < 20) {
-    result += teens[intBatch] + " ";
+    result += " " + teens[intBatch];
   } else if (intBatch > 19 && intBatch < 100) {
     // 023 cases
     const secondDigit = Math.floor(intBatch / 10);
-    result += doubleDigit[secondDigit] + " ";
+    result += " " + doubleDigit[secondDigit];
     if (parseInt(batch[1])) {
       // 023 cases
       const lastDigit = intBatch % 10;
-      result += singleDigit[lastDigit] + " ";
+      result += "-" + singleDigit[lastDigit];
     }
   } else if (intBatch > 99) {
     const hundreds = batch[0];
@@ -149,13 +160,13 @@ const batchConverter = (batch) => {
     }
 
     if (candidateTeens > 0 && candidateTeens < 10) {
-      result += singleDigit[candidateTeens] + " ";
+      result += " " + singleDigit[candidateTeens];
     } else if (candidateTeens > 9 && candidateTeens < 20) {
-      result += teens[candidateTeens] + " ";
+      result += " " + teens[candidateTeens];
     } else if (candidateTeens > 19) {
-      result += doubleDigit[tens] + " ";
+      result += " " + doubleDigit[tens];
       if (parseInt(ones)) {
-        result += singleDigit[ones] + " ";
+        result += "-" + singleDigit[ones];
       }
     }
   }
@@ -173,13 +184,13 @@ const numToWord = (splittedNum, placements) => {
     result += batchConverter(currNum);
 
     if (currPlace === "trillion") {
-      result += "trillion ";
+      result += " trillion ";
     } else if (currPlace === "billion") {
-      result += "billion ";
+      result += " billion ";
     } else if (currPlace === "million") {
-      result += "million ";
+      result += " million ";
     } else if (currPlace === "thousand") {
-      result += "thousand ";
+      result += " thousand ";
     }
   }
 

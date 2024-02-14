@@ -2,19 +2,21 @@
 
 <div id="converter">
 
-    <form action="" name="convert-form" id="convert-form">
-        <p id="title">Number to Words</p>
+<div id="converter-card">
 
-        <input type="number" step="0.01" id="cheque-value" name="cheque-value">
+    <p id="title">Number to Words</p>
+    <form action="" name="convert-form" id="convert-form">
+
+        <input type="number" step="0.01" id="cheque-value" name="cheque-value" required>
         <button type="submit" id="submitForm">Convert</button>
     </form>
 
-    <!-- <div id="blob-1" class="blob"></div> -->
-
     <div id="result-container">
-        <p id="result">123</p>
-        <button type="" id="clear-button">Clear</button>
     </div>
+
+</div>
+
+    
 </div>
     
 <script src="../js/index.js"></script>
