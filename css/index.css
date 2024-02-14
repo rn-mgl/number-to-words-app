@@ -177,6 +177,11 @@ button {
   color: var(--secondary);
   border-radius: 20rem;
   font-size: 1.2rem;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+#submitForm:hover {
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
 }
 
 #result-container {
@@ -197,19 +202,33 @@ button {
   color: var(--black);
   text-transform: capitalize;
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 600;
 }
 
-#clear-button {
+#result-action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+#result-action-buttons button {
   background: none;
-  color: crimson;
   font-size: 0.8rem;
-  margin-left: auto;
   font-weight: 400;
   padding: 0rem;
 }
 
-#clear-button:hover {
+#clear-button {
+  color: crimson;
+}
+
+#copy-button {
+  color: var(--primary);
+}
+
+#result-action-buttons button:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
 }

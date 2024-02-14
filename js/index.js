@@ -1,8 +1,3 @@
-const resultContainer = document.getElementById("result-container");
-const resultTag = document.getElementById("result");
-const clearButton = document.getElementById("clear-button");
-const chequeValue = document.getElementById("cheque-value");
-
 jQuery(function () {
   $("#convert-form").on("submit", function (e) {
     e.preventDefault();
@@ -22,8 +17,20 @@ jQuery(function () {
     const decimal = splitPlaces[1];
 
     if (val < 0) {
-      $("#result").html(`<p id="result">${result}</p>
-      <button id="clear-button">Clear</button>`);
+      $("#result")
+        .html(
+          `<p id="result">${result}</p>
+        <div id="result-action-buttons">
+          <button id="copy-button" content="${result}">Copy</button>
+          <button id="clear-button">Clear</button>
+        </div>`
+        )
+        .slideDown(100)
+        .css({
+          display: "flex",
+          "align-items": "center",
+          "justify-content": "center",
+        });
       return;
     }
 
@@ -57,7 +64,10 @@ jQuery(function () {
     $("#result-container")
       .html(
         `<p id="result">${result}</p>
-          <button id="clear-button">Clear</button>`
+        <div id="result-action-buttons">
+          <button id="copy-button" content="${result}">Copy</button>
+          <button id="clear-button">Clear</button>
+        </div>`
       )
       .slideDown(100)
       .css({
@@ -71,6 +81,11 @@ jQuery(function () {
   $("#result-container").on("click", "#clear-button", function () {
     $("#cheque-value").val("");
     $("#result-container").slideUp(100);
+  });
+
+  $("#result-container").on("click", "#copy-button", function () {
+    const content = $(this).attr("content");
+    navigator.clipboard.writeText(content);
   });
 });
 
