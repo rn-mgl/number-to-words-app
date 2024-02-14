@@ -5,7 +5,7 @@
 ?>
 
 <form action="" name="check" id="check">
-    <input type="string" id="checkValue" name="checkValue">
+    <input type="number" step="0.01" id="checkValue" name="checkValue">
     <button type="submit">Convert</button>
 </form>
     
