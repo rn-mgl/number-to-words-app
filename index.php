@@ -6,7 +6,13 @@
         <p>1</p>
     </div>
 
-    <div id="converter-card">
+    <div id="converter-action-buttons">
+        <button id="convert">Convert</button>
+        <button id="history">History</button>
+    </div>
+    
+
+    <div id="converter-container" class="container">
 
         <p id="title">Number to Words</p>
 
@@ -18,6 +24,11 @@
 
         <div id="result-container"></div>
 
+    </div>
+
+    <div id="results-container" class="container">
+        <p id="title">History</p>
+        <div id="results-wrapper"></div>
     </div>
 </div>
     

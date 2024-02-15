@@ -1,4 +1,5 @@
 jQuery(function () {
+  console.log(1);
   $("#convert-form").on("submit", function (e) {
     e.preventDefault();
 
@@ -75,6 +76,9 @@ jQuery(function () {
         "align-items": "center",
         "justify-content": "center",
       });
+
+    mappedFormData["converted-value"] = result;
+    recordConversion(mappedFormData);
     return;
   });
 
@@ -99,6 +103,28 @@ jQuery(function () {
       $("#notif-popup").slideUp(100);
     }, [5000]);
   });
+
+  $("#convert").on("click", function () {
+    $("#converter-container").fadeIn(100).css({
+      display: "flex",
+      "align-items": "center",
+      "justify-content": "center",
+    });
+
+    $("#results-container").hide();
+  });
+
+  $("#history").on("click", function () {
+    $(" #results-container").fadeIn(100).css({
+      display: "flex",
+      "align-items": "center",
+      "justify-content": "center",
+    });
+
+    $("#converter-container").hide();
+  });
+
+  getAllRecords();
 });
 
 const splitNumber = (numString) => {
@@ -222,4 +248,54 @@ const numToWord = (splittedNum, placements) => {
   }
 
   return result ? result : "zero ";
+};
+
+const recordConversion = (conversionData) => {
+  $.ajax({
+    type: "POST",
+    url: "../php/routes/history.route.php",
+    data: conversionData,
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (response) {
+      console.log(response);
+    },
+  });
+};
+
+const getAllRecords = () => {
+  $.ajax({
+    type: "GET",
+    url: "../php/routes/history.route.php",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      const mappedHistory = response.history.map(function (data) {
+        const dateTime = `${new Date(
+          data.date_record
+        ).toLocaleDateString()} | ${new Date(
+          data.date_record
+        ).toLocaleTimeString()}`;
+
+        return `<div class="result-row">
+                <p class="record-number-entry">
+                  <span>Number Entry:</span> ${data.number_entry}
+                </p>
+                <p class="record-word-result">
+                  <span>Converted Word:</span> ${data.word_result}
+                </p>
+                <p class="record-time">
+                  <span>Date Recorded:</span> ${dateTime}
+                </p>
+              </div>`;
+      });
+
+      $("#results-wrapper").html(mappedHistory);
+    },
+    error: function (response) {
+      console.log(response);
+    },
+  });
 };
