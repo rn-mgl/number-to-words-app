@@ -43,9 +43,9 @@ jQuery(function () {
     let convertedWholeNum = numToWord(wholeNumSplit, wholeNumPlacements);
 
     if (parseInt(whole) > 1) {
-      convertedWholeNum += " pesos";
+      convertedWholeNum += " Pesos";
     } else {
-      convertedWholeNum += " peso";
+      convertedWholeNum += " Peso";
     }
 
     result += convertedWholeNum;
@@ -55,9 +55,9 @@ jQuery(function () {
       const decimalNumPlacements = getPlacements(decimalNumSplit);
       convertedDecimalValue = numToWord(decimalNumSplit, decimalNumPlacements);
       if (parseInt(decimal) > 1) {
-        convertedDecimalValue += "cents";
+        convertedDecimalValue += " Cents";
       } else {
-        convertedDecimalValue += "cent";
+        convertedDecimalValue += " Cent";
       }
       result += " and " + convertedDecimalValue;
     }
@@ -209,7 +209,7 @@ const batchConverter = (batch) => {
 
     // check for batches with 0 in the beginning -> "024"
     if (parseInt(hundreds)) {
-      result += singleDigit[batch[0]] + " hundred ";
+      result += singleDigit[batch[0]] + " Hundred ";
     }
 
     if (candidateTeens > 0 && candidateTeens < 10) {
@@ -237,13 +237,13 @@ const numToWord = (splittedNum, placements) => {
     result += batchConverter(currNum);
 
     if (currPlace === "trillion") {
-      result += " trillion ";
+      result += " Trillion ";
     } else if (currPlace === "billion") {
-      result += " billion ";
+      result += " Billion ";
     } else if (currPlace === "million") {
-      result += " million ";
+      result += " Million ";
     } else if (currPlace === "thousand") {
-      result += " thousand ";
+      result += " Thousand ";
     }
   }
 
