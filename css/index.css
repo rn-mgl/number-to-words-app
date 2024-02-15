@@ -94,13 +94,34 @@ button {
   cursor: pointer;
 }
 
+#notif-popup {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 425px;
+  background: var(--secondary);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+  position: fixed;
+  top: 1rem;
+}
+
+#notif-popup p {
+  color: var(--primary);
+  font-weight: 600;
+}
+
 #converter {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   padding: 1rem;
+  position: relative;
   gap: 2rem;
 }
 

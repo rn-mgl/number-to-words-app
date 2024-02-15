@@ -86,6 +86,18 @@ jQuery(function () {
   $("#result-container").on("click", "#copy-button", function () {
     const content = $(this).attr("content");
     navigator.clipboard.writeText(content);
+    $("#notif-popup")
+      .slideDown(100)
+      .css({
+        display: "flex",
+        "align-items": "center",
+        "justify-content": "center",
+      })
+      .html(`<p>Text copied!</p>`);
+
+    setTimeout(() => {
+      $("#notif-popup").slideUp(100);
+    }, [5000]);
   });
 });
 
