@@ -183,6 +183,9 @@ const getAllRecords = () => {
       });
 
       $("#history-row-wrapper").html(mappedHistory);
+      $("#conversion-count").html(
+        `<span>${response.history.length}</span> Conversions`
+      );
     },
     error: function (response) {
       console.log(response);

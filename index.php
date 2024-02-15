@@ -27,7 +27,11 @@
     </div>
 
     <div id="history-container" class="container">
-        <p class="title">History</p>
+        <div id="history-title-container">
+            <p class="title">History</p>
+            <p id="conversion-count"></p>
+        </div>
+        
         <div id="history-row-wrapper"></div>
     </div>
 </div>

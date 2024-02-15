@@ -50,3 +50,11 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+#conversion-count {
+  opacity: 0.7;
+}
+
+#conversion-count span {
+  font-weight: 600;
+}
