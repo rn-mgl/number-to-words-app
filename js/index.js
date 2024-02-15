@@ -131,7 +131,7 @@ jQuery(function () {
     getAllRecords();
   });
 
-  $("#results-wrapper").on("click", "#delete", function () {
+  $("#history-row-wrapper").on("click", "#delete", function () {
     const uuid = $(this).attr("record");
     const mappedDeleteData = { type: "delete", history_uuid: uuid };
     deleteRecord(mappedDeleteData);
@@ -182,7 +182,7 @@ const getAllRecords = () => {
               </div>`;
       });
 
-      $("#results-wrapper").html(mappedHistory);
+      $("#history-row-wrapper").html(mappedHistory);
     },
     error: function (response) {
       console.log(response);

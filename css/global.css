@@ -1,0 +1,127 @@
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/poppins/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100vh;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 1rem;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+}
+
+button {
+  border-radius: 0.4rem;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+#notif-popup {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 425px;
+  background: var(--secondary);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+  position: fixed;
+  top: 1rem;
+}
+
+#notif-popup p {
+  color: var(--primary);
+  font-weight: 600;
+}

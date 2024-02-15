@@ -14,7 +14,7 @@
 
     <div id="converter-container" class="container">
 
-        <p id="title">Number to Words</p>
+        <p class="title">Number to Words</p>
 
         <form action="" name="convert-form" id="convert-form">
 
@@ -27,8 +27,8 @@
     </div>
 
     <div id="history-container" class="container">
-        <p id="title">History</p>
-        <div id="results-wrapper"></div>
+        <p class="title">History</p>
+        <div id="history-row-wrapper"></div>
     </div>
 </div>
     

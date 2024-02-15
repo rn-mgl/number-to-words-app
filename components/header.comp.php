@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/conversion.css">
+    <link rel="stylesheet" href="./css/history.css">
+
     
     <script src="../js/utils/numberMapping.js"></script>
     <script src="../js/utils/conversion.js"></script>

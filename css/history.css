@@ -1,0 +1,52 @@
+#history {
+  background: none;
+  color: var(--secondary);
+}
+
+#history-container {
+  display: none;
+  justify-content: start;
+  overflow: hidden;
+  height: 100%;
+}
+
+#history-row-wrapper {
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.result-row {
+  background: rgb(230, 230, 230);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  width: 100%;
+  color: black;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.result-row span {
+  font-weight: 600;
+}
+
+#delete {
+  background: none;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: crimson;
+  margin-left: auto;
+}
+
+#delete:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
