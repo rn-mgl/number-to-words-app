@@ -6,8 +6,8 @@
     </div>
 
     <div id="converter-action-buttons">
-        <button id="convert">Convert</button>
-        <button id="history">History</button>
+        <button id="convert">Convert <i class="fa-solid fa-right-left"></i></button>
+        <button id="history">History <i class="fa-solid fa-clock-rotate-left"></i></button>
     </div>
     
 

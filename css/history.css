@@ -37,18 +37,24 @@
   font-weight: 600;
 }
 
-#delete {
+#delete-button {
   background: none;
   padding: 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 400;
   color: crimson;
   margin-left: auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
-#delete:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+#delete-button:hover {
+  background: var(--shadow);
 }
 
 #conversion-count {

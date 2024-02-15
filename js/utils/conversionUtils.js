@@ -64,12 +64,10 @@ const batchConverter = (batch) => {
   } else if (intBatch > 9 && intBatch < 20) {
     result += " " + teens[intBatch];
   } else if (intBatch > 19 && intBatch < 100) {
-    // 023 cases
     const secondDigit = Math.floor(intBatch / 10);
+    const lastDigit = intBatch % 10;
     result += " " + doubleDigit[secondDigit];
-    if (parseInt(batch[1])) {
-      // 023 cases
-      const lastDigit = intBatch % 10;
+    if (lastDigit) {
       result += "-" + singleDigit[lastDigit];
     }
   } else if (intBatch > 99) {

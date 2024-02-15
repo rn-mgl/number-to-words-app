@@ -36,7 +36,7 @@ const getAllRecords = () => {
                   <p class="record-time">
                     <span>Date Recorded:</span> ${dateTime}
                   </p>
-                  <button id="delete" record="${data.history_uuid}">Delete</button>
+                  <button id="delete-button" record="${data.history_uuid}"><i class="fa-solid fa-trash"></i></button>
                 </div>`;
       });
 
