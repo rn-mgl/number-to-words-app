@@ -3,7 +3,6 @@
 <div id="converter">
 
     <div id="notif-popup">
-        <p>1</p>
     </div>
 
     <div id="converter-action-buttons">
@@ -36,6 +35,9 @@
     </div>
 </div>
     
-<script src="../js/index.js"></script>
+
+<script src="./js/conversion.js"></script>
+<script src="./js/history.js"></script>
+
 
 <?php include_once("./components/footer.comp.php") ?>
