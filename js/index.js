@@ -121,6 +121,8 @@ jQuery(function () {
     });
 
     $("#converter-container").hide();
+
+    getAllRecords();
   });
 
   $("#results-wrapper").on("click", "#delete", function () {

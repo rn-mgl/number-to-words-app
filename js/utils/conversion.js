@@ -80,7 +80,7 @@ const batchConverter = (batch) => {
 
     // check for batches with 0 in the beginning -> "024"
     if (parseInt(hundreds)) {
-      result += singleDigit[batch[0]] + " Hundred ";
+      result += singleDigit[batch[0]] + " Hundred";
     }
 
     if (candidateTeens > 0 && candidateTeens < 10) {
