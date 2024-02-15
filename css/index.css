@@ -252,7 +252,7 @@ button {
   box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
 }
 
-#result-container {
+#output-container {
   display: none;
   align-items: center;
   justify-content: center;
@@ -300,7 +300,7 @@ button {
   text-underline-offset: 2px;
 }
 
-#results-container {
+#history-container {
   display: none;
   justify-content: start;
   overflow: hidden;
@@ -332,4 +332,18 @@ button {
 
 .result-row span {
   font-weight: 600;
+}
+
+#delete {
+  background: none;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: crimson;
+  margin-left: auto;
+}
+
+#delete:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

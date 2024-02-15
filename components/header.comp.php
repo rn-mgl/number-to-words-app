@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/index.css">
     
     <script src="../js/utils/numberMapping.js"></script>
+    <script src="../js/utils/conversion.js"></script>
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <title>Number to Words</title>
 </head>

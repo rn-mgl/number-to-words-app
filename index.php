@@ -22,11 +22,11 @@
             <button type="submit" id="submitForm">Convert</button>
         </form>
 
-        <div id="result-container"></div>
+        <div id="output-container"></div>
 
     </div>
 
-    <div id="results-container" class="container">
+    <div id="history-container" class="container">
         <p id="title">History</p>
         <div id="results-wrapper"></div>
     </div>
