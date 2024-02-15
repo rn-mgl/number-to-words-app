@@ -104,6 +104,9 @@ jQuery(function () {
   });
 
   $("#convert").on("click", function () {
+    $(this).css({ background: "#faf8ff", color: "black" });
+    $("#history").css({ background: "none", color: "#faf8ff" });
+
     $("#converter-container").fadeIn(100).css({
       display: "flex",
       "align-items": "center",
@@ -114,7 +117,10 @@ jQuery(function () {
   });
 
   $("#history").on("click", function () {
-    $(" #history-container").fadeIn(100).css({
+    $(this).css({ background: "#faf8ff", color: "black" });
+    $("#convert").css({ background: "none", color: "#faf8ff" });
+
+    $("#history-container").fadeIn(100).css({
       display: "flex",
       "align-items": "center",
       "justify-content": "center",
