@@ -13,7 +13,7 @@
 
     <div id="converter-container" class="container">
 
-        <p class="title">Number to Words</p>
+        <p class="title">Number to Words </p>
 
         <form action="" name="convert-form" id="convert-form">
 
