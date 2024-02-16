@@ -77,6 +77,7 @@ jQuery(function () {
     $("#output-container")
       .html(
         ` <p id="result">${result}</p>
+          <a href="/check">View Check <i class="fa-solid fa-arrow-right"></i></a>
           <div id="result-action-buttons">
             <button id="copy-button" content="${result}"><i class="fa-solid fa-copy"></i></button>
             <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>

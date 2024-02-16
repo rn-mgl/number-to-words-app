@@ -87,6 +87,16 @@ html {
   border-radius: 1rem;
 }
 
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 body {
   width: 100%;
   height: 100%;
