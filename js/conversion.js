@@ -73,26 +73,10 @@ jQuery(function () {
       result += " and " + convertedDecimalValue;
     }
 
-    // display result in html
-    $("#output-container")
-      .html(
-        ` <p id="result">${result}</p>
-          <a href="/check">View Check <i class="fa-solid fa-arrow-right"></i></a>
-          <div id="result-action-buttons">
-            <button id="copy-button" content="${result}"><i class="fa-solid fa-copy"></i></button>
-            <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
-          </div>`
-      )
-      .slideDown(100)
-      .css({
-        display: "flex",
-        "align-items": "center",
-        "justify-content": "center",
-      });
-
     // get value and pass in the object to be recorded in the database
     mappedFormData["converted-value"] = result;
-    recordConversion(mappedFormData);
+    const historyUUID = recordConversion(mappedFormData);
+    console.log(historyUUID);
     $("#notif-popup")
       .slideDown(100)
       .css({
@@ -105,6 +89,24 @@ jQuery(function () {
     setTimeout(() => {
       $("#notif-popup").slideUp(100);
     }, [5000]);
+
+    // display result in html
+    $("#output-container")
+      .html(
+        ` <p id="result">${result}</p>
+          <div id="view-check-link"></div>
+          <div id="result-action-buttons">
+            <button id="copy-button" content="${result}"><i class="fa-solid fa-copy"></i></button>
+            <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
+          </div>`
+      )
+      .slideDown(100)
+      .css({
+        display: "flex",
+        "align-items": "center",
+        "justify-content": "center",
+      });
+
     return;
   });
 

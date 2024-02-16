@@ -20,7 +20,7 @@
                 $stmt->bind_param("sss", $historyUUID, $chequeNumber, $convertedNumber);
                 $result = $stmt->execute();
     
-                echo json_encode(["recorded" => $result ]);
+                echo json_encode(array("recorded" => $result, "uuid" => $historyUUID));
             } catch (Exception $e) {
                 echo json_encode(["recorded" => false ]);
                 die();

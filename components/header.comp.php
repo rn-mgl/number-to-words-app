@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/conversion.css">
     <link rel="stylesheet" href="./css/history.css">
+    <link rel="stylesheet" href="./css/check.css">
     <link href="./css/icons/css/fontawesome.css" rel="stylesheet">
     <link href="./css/icons/css/solid.css" rel="stylesheet">
 
