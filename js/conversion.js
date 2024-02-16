@@ -75,8 +75,8 @@ jQuery(function () {
 
     // get value and pass in the object to be recorded in the database
     mappedFormData["converted-value"] = result;
-    const historyUUID = recordConversion(mappedFormData);
-    console.log(historyUUID);
+    recordConversion(mappedFormData);
+
     $("#notif-popup")
       .slideDown(100)
       .css({

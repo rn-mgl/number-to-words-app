@@ -10,7 +10,7 @@ const recordConversion = (conversionData) => {
       console.log(response);
       if (response.recorded) {
         $("#view-check-link").html(
-          `<a href="/check.php?check_rec=${response.uuid}" id="view-check-link" target=_blank>
+          `<a href="/check.php?checkUUID=${response.uuid}" id="view-check-link" target=_blank>
             View Check <i class="fa-solid fa-arrow-right"></i>
           </a>`
         );
@@ -31,6 +31,7 @@ const getAllRecords = () => {
   $.ajax({
     type: "GET",
     url: "../php/routes/history.route.php",
+    data: { type: "all" },
     dataType: "json",
     success: function (response) {
       const mappedHistory = response.history.map(function (data) {
@@ -61,6 +62,27 @@ const getAllRecords = () => {
     },
     error: function (response) {
       console.log(response);
+    },
+  });
+};
+
+const getRecord = () => {
+  const params = new URLSearchParams(window.location.search);
+
+  const checkUUID = params.get("checkUUID");
+
+  $.ajax({
+    type: "GET",
+    url: "../php/routes/history.route.php",
+    data: { historyUUID: checkUUID, type: "single" },
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      $("#pay-line").html(data.word_result);
+      $("#digits-container").html(data.number_entry);
+    },
+    error: function (data) {
+      console.log(data);
     },
   });
 };

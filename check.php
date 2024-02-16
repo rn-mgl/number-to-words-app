@@ -1,8 +1,6 @@
 <?php 
 include_once("./components/header.comp.php");
-
-
-if (!isset($_GET["check_rec"])) {
+if (!isset($_GET["checkUUID"])) {
     header("Location: /");
 }
  ?>
@@ -57,5 +55,6 @@ if (!isset($_GET["check_rec"])) {
     </div>
 
 </div>
+<script src="./js/check.js"></script>
 
 <?php include_once("./components/footer.comp.php") ?>
