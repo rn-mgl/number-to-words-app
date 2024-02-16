@@ -1,3 +1,4 @@
+// will record the conversion input, words result
 const recordConversion = (conversionData) => {
   $.ajax({
     type: "POST",
@@ -13,6 +14,7 @@ const recordConversion = (conversionData) => {
   });
 };
 
+// will get all the records from the database
 const getAllRecords = () => {
   $.ajax({
     type: "GET",
@@ -51,6 +53,7 @@ const getAllRecords = () => {
   });
 };
 
+// will delete the record
 const deleteRecord = (deleteData) => {
   $.ajax({
     type: "POST",
