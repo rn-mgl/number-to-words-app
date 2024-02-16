@@ -76,11 +76,11 @@ jQuery(function () {
     // display result in html
     $("#output-container")
       .html(
-        `<p id="result">${result}</p>
-            <div id="result-action-buttons">
-              <button id="copy-button" content="${result}"><i class="fa-solid fa-copy"></i></button>
-              <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
-            </div>`
+        ` <p id="result">${result}</p>
+          <div id="result-action-buttons">
+            <button id="copy-button" content="${result}"><i class="fa-solid fa-copy"></i></button>
+            <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
+          </div>`
       )
       .slideDown(100)
       .css({
