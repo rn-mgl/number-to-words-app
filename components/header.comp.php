@@ -16,7 +16,7 @@
     <script src="../js/utils/conversionUtils.js"></script>
     <script src="../js/utils/ajaxUtils.js"></script>
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
-    <title>Number to Words</title>
+    <title>Check App</title>
 </head>
 <body>
 
