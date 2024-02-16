@@ -88,13 +88,8 @@ html {
 }
 
 a {
-  color: var(--primary);
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: var(--primary);
 }
 
 body {

@@ -37,13 +37,15 @@
   font-weight: 600;
 }
 
-#delete-button {
+.history-row-action-buttons {
+  margin-left: auto;
+}
+
+.history-row-action-buttons > * {
   background: none;
   padding: 0;
   font-size: 0.8rem;
   font-weight: 400;
-  color: crimson;
-  margin-left: auto;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -53,7 +55,15 @@
   transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
+#delete-button {
+  color: crimson;
+}
+
 #delete-button:hover {
+  background: var(--shadow);
+}
+
+#check-link:hover {
   background: var(--shadow);
 }
 
@@ -63,4 +73,11 @@
 
 #conversion-count span {
   font-weight: 600;
+}
+
+.history-row-action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }

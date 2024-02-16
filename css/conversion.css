@@ -160,3 +160,13 @@
 #result-action-buttons button:hover {
   background: var(--shadow);
 }
+
+#view-check-link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+#view-check-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

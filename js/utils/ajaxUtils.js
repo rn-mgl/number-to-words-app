@@ -51,7 +51,11 @@ const getAllRecords = () => {
                   <p class="record-time">
                     <span>Date Recorded:</span> ${dateTime}
                   </p>
-                  <button id="delete-button" record="${data.history_uuid}"><i class="fa-solid fa-trash"></i></button>
+                  <div class="history-row-action-buttons">
+                    <a id="check-link" target=_blank href="/check.php?checkUUID=${data.history_uuid}"><i class="fa-solid fa-money-check"></i></a>
+                    <button id="delete-button" record="${data.history_uuid}"><i class="fa-solid fa-trash"></i></button>
+                  </div>
+                  
                 </div>`;
       });
 
