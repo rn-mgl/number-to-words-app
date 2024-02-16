@@ -20,7 +20,7 @@ if (!isset($_GET["checkUUID"])) {
 
                 <div class="check-date">
                     <p>DATE </p>
-                    <p>01/01/1999</p>
+                    <p id="check-date">01/01/1999</p>
                 </div>
             </div>
 

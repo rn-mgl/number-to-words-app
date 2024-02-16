@@ -77,9 +77,10 @@ const getRecord = () => {
     data: { historyUUID: checkUUID, type: "single" },
     dataType: "json",
     success: function (data) {
-      console.log(data);
+      const checkDate = new Date(data.date_record).toLocaleDateString();
       $("#pay-line").html(data.word_result);
       $("#digits-container").html(data.number_entry);
+      $("#check-date").html(checkDate);
     },
     error: function (data) {
       console.log(data);
