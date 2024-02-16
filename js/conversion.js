@@ -92,6 +92,18 @@ jQuery(function () {
     // get value and pass in the object to be recorded in the database
     mappedFormData["converted-value"] = result;
     recordConversion(mappedFormData);
+    $("#notif-popup")
+      .slideDown(100)
+      .css({
+        display: "flex",
+        "align-items": "center",
+        "justify-content": "center",
+      })
+      .html(`<p>Conversion recorded!</p>`);
+
+    setTimeout(() => {
+      $("#notif-popup").slideUp(100);
+    }, [5000]);
     return;
   });
 
