@@ -2,20 +2,18 @@
 
 <div id="converter">
 
-    <div id="notif-popup">
-    </div>
+    <div id="notif-popup"></div>
 
     <div id="converter-action-buttons">
-        <button id="convert">Convert</button>
-        <button id="history">History</button>
+        <button id="convert">Convert <i class="fa-solid fa-right-left"></i></button>
+        <button id="history">History <i class="fa-solid fa-clock-rotate-left"></i></button>
     </div>
-    
 
     <div id="converter-container" class="container">
 
-        <p class="title">Number to Words</p>
+        <p class="title">Check App</p>
 
-        <form action="" name="convert-form" id="convert-form">
+        <form name="convert-form" id="convert-form">
 
             <input type="number" step="0.01" id="cheque-value" name="cheque-value" required>
             <button type="submit" id="submitForm">Convert</button>
@@ -34,7 +32,6 @@
         <div id="history-row-wrapper"></div>
     </div>
 </div>
-    
 
 <script src="./js/conversion.js"></script>
 <script src="./js/history.js"></script>

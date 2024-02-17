@@ -20,7 +20,7 @@
                 $stmt->bind_param("sss", $historyUUID, $chequeNumber, $convertedNumber);
                 $result = $stmt->execute();
     
-                echo json_encode(["recorded" => $result ]);
+                echo json_encode(array("recorded" => $result, "uuid" => $historyUUID));
             } catch (Exception $e) {
                 echo json_encode(["recorded" => false ]);
                 die();
@@ -51,21 +51,51 @@
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        try {
-            $query = "SELECT * FROM history ORDER BY date_record DESC;";
-            $result = $conn->query($query);
-
-            $history = [];
-
-            while ($row = $result->fetch_assoc()) {
-                $history[] = $row;
+        if ($_GET["type"] == "all") {
+            try {
+                $query = "SELECT * FROM history ORDER BY date_record DESC;";
+                $result = $conn->query($query);
+    
+                $history = [];
+    
+                while ($row = $result->fetch_assoc()) {
+                    $history[] = $row;
+                }
+                
+                echo json_encode(["history" => $history ]);
+            } catch (Exception $e) {
+                echo json_encode(["history" => false ]);
+                die();
             }
-            
-            echo json_encode(["history" => $history ]);
-        } catch (Exception $e) {
-            echo json_encode(["history" => false ]);
-            die();
         }
+
+        if ($_GET["type"] == "single") {
+
+            if (!isset($_GET["historyUUID"])) {
+                echo json_encode(["data" => false]);
+            }
+
+            $uuid = $_GET["historyUUID"];
+
+            try {
+                $query = "SELECT * FROM history WHERE history_uuid = ?;";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s",$uuid );
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    echo json_encode($row);
+                } else {
+                    echo json_encode(array());
+                }
+            } catch (Exception $e) {
+                echo json_encode(["history" => false ]);
+                die();
+            }
+        }
+        
     }
 
 ?>

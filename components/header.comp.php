@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/conversion.css">
     <link rel="stylesheet" href="./css/history.css">
+    <link rel="stylesheet" href="./css/check.css">
+    <link href="./css/icons/css/fontawesome.css" rel="stylesheet">
+    <link href="./css/icons/css/solid.css" rel="stylesheet">
 
     
     <script src="../js/utils/numberMappingUtils.js"></script>
     <script src="../js/utils/conversionUtils.js"></script>
     <script src="../js/utils/ajaxUtils.js"></script>
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
-    <title>Number to Words</title>
+    <title>Check App</title>
 </head>
 <body>
 
