@@ -26,6 +26,7 @@ const getAllRecords = () => {
     type: "GET",
     url: "../php/routes/history.route.php",
     data: { type: "all" },
+    data: { type: "all" },
     dataType: "json",
     success: function (response) {
       const mappedHistory = response.history.map(function (data) {
@@ -48,8 +49,7 @@ const getAllRecords = () => {
                   <div class="history-row-action-buttons">
                     <a id="check-link" target=_blank href="/check.php?checkUUID=${data.history_uuid}"><i class="fa-solid fa-money-check"></i></a>
                     <button id="delete-button" record="${data.history_uuid}"><i class="fa-solid fa-trash"></i></button>
-                  </div>
-                  
+                  </div>      
                 </div>`;
       });
 
@@ -64,6 +64,7 @@ const getAllRecords = () => {
   });
 };
 
+// will delete the record
 const getRecord = () => {
   const params = new URLSearchParams(window.location.search);
 
