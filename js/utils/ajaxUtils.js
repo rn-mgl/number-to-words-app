@@ -64,7 +64,7 @@ const getAllRecords = () => {
   });
 };
 
-// will delete the record
+// will get the record
 const getRecord = () => {
   const params = new URLSearchParams(window.location.search);
 
@@ -95,12 +95,10 @@ const deleteRecord = (deleteData) => {
     data: deleteData,
     dataType: "json",
     success: function (response) {
-      console.log(response);
       getAllRecords();
     },
     error: function (response) {
       console.log(response);
-      getAllRecords();
     },
   });
 };
