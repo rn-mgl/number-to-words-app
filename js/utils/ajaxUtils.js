@@ -1,13 +1,11 @@
 // will record the conversion input, words result
 const recordConversion = (conversionData) => {
-  let uuid = "";
   $.ajax({
     type: "POST",
     url: "../php/routes/history.route.php",
     data: conversionData,
     dataType: "json",
     success: function (response) {
-      console.log(response);
       if (response.recorded) {
         $("#view-check-link").html(
           `<a href="/check.php?checkUUID=${response.uuid}" id="view-check-link" target=_blank>
@@ -20,10 +18,6 @@ const recordConversion = (conversionData) => {
       console.log(response);
     },
   });
-
-  console.log(uuid);
-
-  return uuid;
 };
 
 // will get all the records from the database

@@ -77,18 +77,7 @@ jQuery(function () {
     mappedFormData["converted-value"] = result;
     recordConversion(mappedFormData);
 
-    $("#notif-popup")
-      .slideDown(100)
-      .css({
-        display: "flex",
-        "align-items": "center",
-        "justify-content": "center",
-      })
-      .html(`<p>Conversion recorded!</p>`);
-
-    setTimeout(() => {
-      $("#notif-popup").slideUp(100);
-    }, [5000]);
+    notifyUser("Conversion recorded!");
 
     // display result in html
     $("#output-container")
@@ -106,8 +95,6 @@ jQuery(function () {
         "align-items": "center",
         "justify-content": "center",
       });
-
-    return;
   });
 
   // remove input and hide output display
@@ -120,18 +107,7 @@ jQuery(function () {
   $("#output-container").on("click", "#copy-button", function () {
     const content = $(this).attr("content");
     navigator.clipboard.writeText(content);
-    $("#notif-popup")
-      .slideDown(100)
-      .css({
-        display: "flex",
-        "align-items": "center",
-        "justify-content": "center",
-      })
-      .html(`<p>Text copied!</p>`);
-
-    setTimeout(() => {
-      $("#notif-popup").slideUp(100);
-    }, [5000]);
+    notifyUser("Text copied!");
   });
 
   // change panels to conversion

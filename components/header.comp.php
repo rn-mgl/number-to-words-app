@@ -16,6 +16,7 @@
     <script src="../js/utils/numberMappingUtils.js"></script>
     <script src="../js/utils/conversionUtils.js"></script>
     <script src="../js/utils/ajaxUtils.js"></script>
+    <script src="../js/utils/notifUtils.js"></script>
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <title>Check App</title>
 </head>
