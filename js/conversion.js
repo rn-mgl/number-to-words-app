@@ -73,6 +73,13 @@ jQuery(function () {
       result += " and " + convertedDecimalValue;
     }
 
+    // get value and pass in the object to be recorded in the database
+    mappedFormData["converted-value"] = result;
+    recordConversion(mappedFormData);
+
+    notifyUser("Conversion recorded!");
+
+    // display result in html
     $("#output-container")
       .html(
         ` <p id="result">${result}</p>
@@ -88,10 +95,6 @@ jQuery(function () {
         "align-items": "center",
         "justify-content": "center",
       });
-
-    mappedFormData["converted-value"] = result;
-    recordConversion(mappedFormData);
-    return;
   });
 
   // remove input and hide output display
