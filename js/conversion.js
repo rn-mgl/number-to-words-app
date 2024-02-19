@@ -17,18 +17,18 @@ jQuery(function () {
     const inputData = mappedFormData["cheque-value"];
     // get input value and force two decimal places even on whole numbers
     const val = parseFloat(inputData).toFixed(2);
-    // stringify to split the whole and decimal
+    // stringify to split the whole and decimal numbers
     const numToString = val.toString();
     const splitPlaces = numToString.split(".");
     const whole = splitPlaces[0];
     const decimal = splitPlaces[1];
-    const alphabetRegex = /[a-zA-Z]/;
+    const alphabetRegex = /[a-zA-Z]/; // check if input value has non-numeric characters
 
-    // // if there is no input or it is null. return none
-    // if (!val || val < 0 || isNaN(val) || alphabetRegex.test(inputData)) {
-    //   notifyUser("Please enter appropriate values");
-    //   return;
-    // }
+    // if there is no input or it is null. return none
+    if (!val || val < 0 || isNaN(val) || alphabetRegex.test(inputData)) {
+      notifyUser("Please enter appropriate values");
+      return;
+    }
 
     // split whole num into batches and get the placements
     const wholeNumSplit = splitNumber(whole);
