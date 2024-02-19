@@ -26,16 +26,15 @@ if (!isset($_GET["checkUUID"])) {
 
             <div class="check-body">
                 <div class="check-pay">
-                    <p>PAY</p>
-                    <div id="pay-line"></div>
+                    <p>PAY TO THE ORDER OF</p>
+                    <div id="order-of-line"></div>
                     <div id="digits-container">
-                        DIGITS
+                        <p id="peso-sign">P</p> <p id="digits"></p>
                     </div>   
                 </div>
 
                 <div class="check-for">
-                    <p>TO THE<br> ORDER OF</p>
-                    <div id="order-of-line"></div>
+                    <div id="pay-line"></div>
                 </div>
             </div>
 
