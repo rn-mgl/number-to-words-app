@@ -1,5 +1,6 @@
 // will record the conversion input, words result
 const recordConversion = (conversionData) => {
+  const wordResult = conversionData["converted-value"];
   $.ajax({
     type: "POST",
     url: "../php/routes/history.route.php",
@@ -7,11 +8,12 @@ const recordConversion = (conversionData) => {
     dataType: "json",
     success: function (response) {
       if (response.recorded) {
-        $("#view-check-link").html(
-          `<a href="/check.php?checkUUID=${response.uuid}" id="view-check-link" target=_blank>
-            View Check <i class="fa-solid fa-arrow-right"></i>
-          </a>`
-        );
+        displayWordOutput(wordResult, response.uuid);
+        notifyUser("Conversion recorded!");
+      }
+
+      if (!response.recorded) {
+        notifyUser(response.error);
       }
     },
     error: function (response) {
@@ -67,7 +69,6 @@ const getAllRecords = () => {
 // will get the record
 const getRecord = () => {
   const params = new URLSearchParams(window.location.search);
-
   const checkUUID = params.get("checkUUID");
 
   $.ajax({

@@ -24,11 +24,11 @@ jQuery(function () {
     const decimal = splitPlaces[1];
     const alphabetRegex = /[a-zA-Z]/;
 
-    // if there is no input or it is null. return none
-    if (!val || val < 0 || isNaN(val) || alphabetRegex.test(inputData)) {
-      notifyUser("Please enter appropriate values");
-      return;
-    }
+    // // if there is no input or it is null. return none
+    // if (!val || val < 0 || isNaN(val) || alphabetRegex.test(inputData)) {
+    //   notifyUser("Please enter appropriate values");
+    //   return;
+    // }
 
     // split whole num into batches and get the placements
     const wholeNumSplit = splitNumber(whole);
@@ -64,26 +64,8 @@ jQuery(function () {
 
     // get value and pass in the object to be recorded in the database
     mappedFormData["converted-value"] = result;
+
     recordConversion(mappedFormData);
-
-    notifyUser("Conversion recorded!");
-
-    // display result in html
-    $("#output-container")
-      .html(
-        ` <p id="result">${result}</p>
-          <div id="view-check-link"></div>
-          <div id="result-action-buttons">
-            <button id="copy-button" content="${result}"><i class="fa-solid fa-copy"></i></button>
-            <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
-          </div>`
-      )
-      .slideDown(100)
-      .css({
-        display: "flex",
-        "align-items": "center",
-        "justify-content": "center",
-      });
   });
 
   // remove input and hide output display

@@ -12,6 +12,11 @@
             $chequeNumber = $_POST["cheque-value"];
             $convertedNumber = $_POST["converted-value"];
             $historyUUID = bin2hex(openssl_random_pseudo_bytes(25));
+
+            if (!is_numeric($chequeNumber) || is_nan($chequeNumber) || is_null($chequeNumber)) {
+                echo json_encode(array("recorded" => false, "error" => "Invalid input type"));
+                die();
+            }
     
             try {
                 $query = "INSERT INTO history (history_uuid, number_entry, word_result)
@@ -22,7 +27,7 @@
     
                 echo json_encode(array("recorded" => $result, "uuid" => $historyUUID));
             } catch (Exception $e) {
-                echo json_encode(["recorded" => false ]);
+                echo json_encode(array("recorded" => false, "error" => "Error in recording your input."));
                 die();
             }
         }
