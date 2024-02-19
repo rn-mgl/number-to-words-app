@@ -14,30 +14,19 @@ jQuery(function () {
     // initialize result var
     let result = "";
 
+    const inputData = mappedFormData["cheque-value"];
     // get input value and force two decimal places even on whole numbers
-    const val = parseFloat(mappedFormData["cheque-value"]).toFixed(2);
+    const val = parseFloat(inputData).toFixed(2);
     // stringify to split the whole and decimal
     const numToString = val.toString();
     const splitPlaces = numToString.split(".");
     const whole = splitPlaces[0];
     const decimal = splitPlaces[1];
+    const alphabetRegex = /[a-zA-Z]/;
 
     // if there is no input or it is null. return none
-    if (!val || val < 0) {
-      $("#result")
-        .html(
-          `<p id="result">${result}</p>
-            <div id="result-action-buttons">
-              <button id="copy-button" content="${result}">Copy</button>
-              <button id="clear-button">Clear</button>
-            </div>`
-        )
-        .slideDown(100)
-        .css({
-          display: "flex",
-          "align-items": "center",
-          "justify-content": "center",
-        });
+    if (!val || val < 0 || isNaN(val) || alphabetRegex.test(inputData)) {
+      notifyUser("Please enter appropriate values");
       return;
     }
 
