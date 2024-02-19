@@ -24,6 +24,7 @@
     </div>
 
     <div id="history-container" class="container">
+
         <div id="history-title-container">
             <p class="title">History</p>
             <p id="conversion-count"></p>
@@ -31,6 +32,20 @@
         
         <div id="history-row-wrapper"></div>
     </div>
+
+    <div id="delete-form-container">
+
+        <form method="post" id="delete-form">
+                <p id="delete-title">Delete check record?</p>
+                <div id="delete-form-action-buttons">
+                    <button type="button" id="cancel-button">Cancel</button>
+                    <button type="button" id="confirm-delete-button">Delete</button>
+                </div>
+        </form>
+
+    </div>
+
+    
 </div>
 
 <script src="./js/conversion.js"></script>

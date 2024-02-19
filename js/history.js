@@ -19,7 +19,24 @@ jQuery(function () {
   $("#history-row-wrapper").on("click", "#delete-button", function () {
     const uuid = $(this).attr("record");
     const mappedDeleteData = { type: "delete", history_uuid: uuid };
-    deleteRecord(mappedDeleteData);
+    $("#delete-form-container").fadeIn(100).css({
+      display: "flex",
+      "align-items": "center",
+      "justify-content": "center",
+    });
+
+    function confirmDelete() {
+      deleteRecord(mappedDeleteData);
+      $("#delete-form-container").fadeOut(100);
+      $("#confirm-delete-button").off("click", confirmDelete);
+    }
+
+    $("#confirm-delete-button").on("click", confirmDelete);
+  });
+
+  //cancel delete
+  $("#cancel-button").on("click", function () {
+    $("#delete-form-container").fadeOut(100);
   });
 
   getAllRecords();

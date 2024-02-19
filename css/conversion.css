@@ -10,6 +10,10 @@
   gap: 2rem;
 }
 
+#converter-container {
+  display: flex;
+}
+
 #converter-action-buttons {
   display: flex;
   align-items: center;
