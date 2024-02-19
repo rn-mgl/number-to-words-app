@@ -36,9 +36,10 @@
             $history_uuid = $_POST["history_uuid"];
 
             try {
-                $query = "DELETE FROM history WHERE history_uuid = ?;";
+                $query = "UPDATE history SET is_deleted = ? WHERE history_uuid = ?;";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("s", $history_uuid);
+                $isDeleted = 1;
+                $stmt->bind_param("is", $isDeleted, $history_uuid);
                 $result = $stmt->execute();
 
                 echo json_encode(["deleted" => $result ]);
@@ -53,13 +54,29 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if ($_GET["type"] == "all") {
             try {
-                $query = "SELECT * FROM history ORDER BY date_record DESC;";
-                $result = $conn->query($query);
+                $query = "SELECT * FROM history WHERE is_deleted = ? ORDER BY date_record DESC;";
+                $stmt = $conn->prepare($query);
+                $isDeleted = 0;
+                $stmt->bind_param("i", $isDeleted);
+                $result = $stmt->execute();
+
+                if (!$result) {
+                    die("Error executing query: " . $stmt->error);
+                }
     
+                $stmt->bind_result($history_id, $history_uuid, $number_entry, $word_result, $date_record, $is_deleted);
+
                 $history = [];
     
-                while ($row = $result->fetch_assoc()) {
-                    $history[] = $row;
+                while ($stmt->fetch()) {
+                    $history[] = [
+                        "history_id" => $history_id, 
+                        "history_uuid" => $history_uuid, 
+                        "number_entry" => $number_entry, 
+                        "word_result" => $word_result, 
+                        "date_record" => $date_record, 
+                        "is_deleted" => $is_deleted, 
+                    ];
                 }
                 
                 echo json_encode(["history" => $history ]);
@@ -81,11 +98,23 @@
                 $query = "SELECT * FROM history WHERE history_uuid = ?;";
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("s",$uuid );
-                $stmt->execute();
-                $result = $stmt->get_result();
+                $result = $stmt->execute();
+                
+                if (!$result) {
+                    die("Error in getting check" . $stmt->error);
+                }
 
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
+                $stmt->bind_result($history_id, $history_uuid, $number_entry, $word_result, $date_record, $is_deleted);
+
+                if ($stmt->fetch()) {
+                    $row = [
+                        "history_id" => $history_id, 
+                        "history_uuid" => $history_uuid, 
+                        "number_entry" => $number_entry, 
+                        "word_result" => $word_result, 
+                        "date_record" => $date_record, 
+                        "is_deleted" => $is_deleted, 
+                    ];
                     echo json_encode($row);
                 } else {
                     echo json_encode(array());
