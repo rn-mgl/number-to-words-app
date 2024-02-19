@@ -1,3 +1,14 @@
+/**
+ * Mapping of single-digit numbers to their word representations.
+ *
+ * Tags: number mapping, word representation
+ *
+ * Values:
+ * - Each key-value pair represents a single-digit number and its corresponding word.
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const singleDigit = {
   1: "One",
   2: "Two",
@@ -10,6 +21,17 @@ const singleDigit = {
   9: "Nine",
 };
 
+/**
+ * Mapping of teen numbers (10-19) to their word representations.
+ *
+ * Tags: number mapping, word representation
+ *
+ * Values:
+ * - Each key-value pair represents a teen number and its corresponding word.
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const teens = {
   10: "Ten",
   11: "Eleven",
@@ -23,6 +45,17 @@ const teens = {
   19: "Nineteen",
 };
 
+/**
+ * Mapping of double-digit multiples of ten to their word representations.
+ *
+ * Tags: number mapping, word representation
+ *
+ * Values:
+ * - Each key-value pair represents a double-digit multiple of ten and its corresponding word.
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const doubleDigit = {
   2: "Twenty",
   3: "Thirty",

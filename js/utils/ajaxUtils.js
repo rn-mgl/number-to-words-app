@@ -1,4 +1,17 @@
-// will record the conversion input, words result
+/**
+ * Records a conversion by sending the conversion data to the server.
+ *
+ * Tags: AJAX, data recording
+ *
+ * Parameters:
+ * - conversionData: object (The data to be recorded, including the converted value)
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const recordConversion = (conversionData) => {
   const wordResult = conversionData["converted-value"];
   $.ajax({
@@ -22,12 +35,24 @@ const recordConversion = (conversionData) => {
   });
 };
 
-// will get all the records from the database
+/**
+ * Retrieves all conversion records from the server and updates the history section on the page.
+ *
+ * Tags: AJAX, data retrieval
+ *
+ * Parameters:
+ * - None
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const getAllRecords = () => {
   $.ajax({
     type: "GET",
     url: "../php/routes/history.route.php",
-    data: { type: "all" },
     data: { type: "all" },
     dataType: "json",
     success: function (response) {
@@ -66,7 +91,20 @@ const getAllRecords = () => {
   });
 };
 
-// will get the record
+/**
+ * Retrieves a single conversion record from the server based on the provided checkUUID.
+ *
+ * Tags: AJAX, data retrieval
+ *
+ * Parameters:
+ * - None
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const getRecord = () => {
   const params = new URLSearchParams(window.location.search);
   const checkUUID = params.get("checkUUID");
@@ -88,7 +126,20 @@ const getRecord = () => {
   });
 };
 
-// will delete the record
+/**
+ * Deletes a conversion record from the server based on the provided deleteData.
+ *
+ * Tags: AJAX, data deletion
+ *
+ * Parameters:
+ * - deleteData: object (The data needed for record deletion)
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const deleteRecord = (deleteData) => {
   $.ajax({
     type: "POST",

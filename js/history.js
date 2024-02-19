@@ -1,3 +1,17 @@
+/**
+ * Initializes the functionality for handling history panels in the application.
+ *
+ * Tags: jQuery, event handling, DOM manipulation
+ *
+ * Parameters:
+ * - None
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 jQuery(function () {
   //change panels to history
   $("#history").on("click", function () {

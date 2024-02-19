@@ -1,3 +1,17 @@
+/**
+ * Initializes the functionality for handling the conversion process in the application.
+ *
+ * Tags: jQuery, event handling, form submission, DOM manipulation, input validation
+ *
+ * Parameters:
+ * - e: Event object (form submission)
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 jQuery(function () {
   $("#convert-form").on("submit", function (e) {
     e.preventDefault();

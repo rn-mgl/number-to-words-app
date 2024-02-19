@@ -1,4 +1,17 @@
-// pop up notif
+/**
+ * Displays a notification to the user with a specified message.
+ *
+ * Tags: notification, user feedback
+ *
+ * Parameters:
+ * - message: string (Message to be displayed in the notification)
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const notifyUser = (message) => {
   $("#notif-popup")
     .slideDown(100)
@@ -14,7 +27,21 @@ const notifyUser = (message) => {
   }, [5000]);
 };
 
-// display output of converted word
+/**
+ * Displays the output of the converted word with additional action buttons.
+ *
+ * Tags: result display, user interface
+ *
+ * Parameters:
+ * - wordResult: string (The converted word result to be displayed)
+ * - checkUUID: string (The unique identifier for the check)
+ *
+ * Values:
+ * - None
+ *
+ * Created by: Rein Buenaventura
+ * Created on: 19th Feb, 2024
+ */
 const displayWordOutput = (wordResult, checkUUID) => {
   $("#output-container")
     .html(
